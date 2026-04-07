@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AteliApp-Backend/AteliApp-Backend.csproj" />
+  <Project Path="AteliApp.Application/AteliApp.Application.csproj" />
+  <Project Path="AteliApp.Domain/AteliApp.Domain.csproj" />
+  <Project Path="AteliApp.Infrastructure/AteliApp.Infrastructure.csproj" />
+</Solution>
