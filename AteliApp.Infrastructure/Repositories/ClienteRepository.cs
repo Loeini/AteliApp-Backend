@@ -20,6 +20,12 @@ public class ClienteRepository : IClienteRepository
         await _context.SaveChangesAsync();
     }
 
+    public async Task UpdateAsync(Cliente cliente)
+    {
+        _context.Clientes.Update(cliente);
+        await _context.SaveChangesAsync();
+    }
+
     public async Task<List<Cliente>> GetAllAsync()
     {
         return await _context.Clientes.ToListAsync();

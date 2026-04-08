@@ -8,6 +8,7 @@ namespace AteliApp.Domain.Interfaces
     public interface IClienteRepository
     {
         Task AddAsync(Cliente cliente);
+        Task UpdateAsync(Cliente cliente);
         Task<List<Cliente>> GetAllAsync();
         Task<Cliente?> GetByIdAsync(Guid id);
 

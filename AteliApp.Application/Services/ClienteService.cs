@@ -36,6 +36,27 @@ namespace AteliApp.Application.Services
             await _clienteRepository.AddAsync(cliente);
         }
 
+        public async Task<Cliente> ObterPorIdAsync(Guid id)
+        {
+            var cliente = await _clienteRepository.GetByIdAsync(id);
+            if (cliente == null)
+                throw new KeyNotFoundException("Cliente não encontrado.");
+            return cliente;
+        }
+
+        public async Task AtualizarAsync(Guid id, AtualizarClienteDto atualizarClienteDto)
+        {
+            var cliente = await _clienteRepository.GetByIdAsync(id);
+            if (cliente == null)
+                throw new KeyNotFoundException("Cliente não encontrado.");
+            cliente.Cpf = atualizarClienteDto.Cpf ?? cliente.Cpf;
+            cliente.Nome = atualizarClienteDto.Nome ?? cliente.Nome;
+            cliente.Telefone = atualizarClienteDto.Telefone ?? cliente.Telefone;
+            cliente.Email = atualizarClienteDto.Email ?? cliente.Email;
+            cliente.Endereco = atualizarClienteDto.Endereco ?? cliente.Endereco;
+            await _clienteRepository.UpdateAsync(cliente);
+        }
+
         public async Task<List<Cliente>> ListarAsync()
         {
             return await _clienteRepository.GetAllAsync();
