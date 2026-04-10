@@ -11,4 +11,5 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Cliente> Clientes => Set<Cliente>();
+    public DbSet<OrdemDeServico> OrdensDeServico => Set<OrdemDeServico>();
 }

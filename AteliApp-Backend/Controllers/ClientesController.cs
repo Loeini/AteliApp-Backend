@@ -29,7 +29,7 @@ public class ClientesController : ControllerBase
             );
 
         await _service.CriarAsync(cliente);
-        return Ok();
+        return Created();
     }
 
     [HttpPut("{id}")]

@@ -13,6 +13,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<ClienteService>();
+builder.Services.AddScoped<IOrdemDeServicoRepository, OrdemDeServicoRepository>();
+builder.Services.AddScoped<OrdemDeServicoService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
