@@ -1,0 +1,265 @@
+openapi: 3.0.3
+
+info:
+  title: AteliApp API
+  description: Documentação da API de Clientes e Ordens de Serviço
+  version: 1.0.0
+
+servers:
+  - url: https://loeini.github.io
+    description: Produção
+  - url: http://localhost:7044
+    description: Desenvolvimento
+
+tags:
+  - name: Clientes
+    description: Operações relacionadas a clientes
+  - name: OrdemDeServico
+    description: Operações relacionadas a ordens de serviço
+
+paths:
+  /api/clientes:
+    get:
+      tags:
+        - Clientes
+      summary: Listar clientes
+      responses:
+        '200':
+          description: Lista de clientes retornada com sucesso
+
+    post:
+      tags:
+        - Clientes
+      summary: Criar cliente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriarClienteRequest'
+      responses:
+        '201':
+          description: Cliente criado com sucesso
+
+  /api/clientes/{id}:
+    get:
+      tags:
+        - Clientes
+      summary: Buscar cliente por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Cliente encontrado
+        '404':
+          description: Cliente não encontrado
+
+    put:
+      tags:
+        - Clientes
+      summary: Atualizar cliente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AtualizarClienteRequest'
+      responses:
+        '200':
+          description: Cliente atualizado com sucesso
+
+  /api/OrdemDeServico:
+    get:
+      tags:
+        - OrdemDeServico
+      summary: Listar ordens de serviço
+      responses:
+        '200':
+          description: Lista de ordens de serviço retornada com sucesso
+
+    post:
+      tags:
+        - OrdemDeServico
+      summary: Criar ordem de serviço
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriarOrdemDeServicoRequest'
+      responses:
+        '201':
+          description: Ordem de serviço criada com sucesso
+
+  /api/OrdemDeServico/{id}:
+    get:
+      tags:
+        - OrdemDeServico
+      summary: Buscar ordem de serviço por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Ordem de serviço encontrada
+        '404':
+          description: Ordem de serviço não encontrada
+
+    put:
+      tags:
+        - OrdemDeServico
+      summary: Atualizar ordem de serviço
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AtualizarOrdemDeServicoRequest'
+      responses:
+        '200':
+          description: Ordem de serviço atualizada com sucesso
+
+    delete:
+      tags:
+        - OrdemDeServico
+      summary: Excluir ordem de serviço
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Ordem de serviço excluída com sucesso
+
+components:
+  schemas:
+    CriarClienteRequest:
+      type: object
+      required:
+        - cpf
+        - nome
+        - endereco
+      properties:
+        cpf:
+          type: string
+          example: "12345678900"
+        nome:
+          type: string
+          example: "João Silva"
+        telefone:
+          type: string
+          example: "47999999999"
+        email:
+          type: string
+          example: "joao@email.com"
+        endereco:
+          type: string
+          example: "Rua das Flores, 123"
+
+    AtualizarClienteRequest:
+      type: object
+      properties:
+        cpf:
+          type: string
+          example: "12345678900"
+        nome:
+          type: string
+          example: "João Silva"
+        telefone:
+          type: string
+          example: "47999999999"
+        email:
+          type: string
+          example: "joao@email.com"
+        endereco:
+          type: string
+          example: "Rua das Flores, 123"
+
+    CriarOrdemDeServicoRequest:
+      type: object
+      required:
+        - clienteId
+        - titulo
+        - descricao
+        - status
+        - tipoServico
+        - valor
+      properties:
+        clienteId:
+          type: string
+          format: uuid
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        titulo:
+          type: string
+          example: "Conserto de vestido"
+        descricao:
+          type: string
+          example: "Ajuste de barra e costura lateral"
+        dataEntrega:
+          type: string
+          format: date-time
+          example: "2026-04-30T18:00:00Z"
+        status:
+          type: string
+          example: "Em andamento"
+        tipoServico:
+          type: string
+          example: "Costura"
+        valor:
+          type: number
+          format: decimal
+          example: 150.75
+        medidasId:
+          type: string
+          format: uuid
+          example: "8c1b6e9a-4d1e-4b7d-bf98-a4e3bb6db123"
+
+    AtualizarOrdemDeServicoRequest:
+      type: object
+      properties:
+        titulo:
+          type: string
+          example: "Conserto de vestido"
+        descricao:
+          type: string
+          example: "Ajuste final"
+        dataEntrega:
+          type: string
+          format: date-time
+          example: "2026-05-05T18:00:00Z"
+        status:
+          type: string
+          example: "Finalizado"
+        tipoServico:
+          type: string
+          example: "Costura"
+        valor:
+          type: number
+          format: decimal
+          example: 180.00
