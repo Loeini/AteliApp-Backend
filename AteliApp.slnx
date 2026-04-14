@@ -1,6 +1,17 @@
 <Solution>
-  <Project Path="AteliApp-Backend/AteliApp-Backend.csproj" />
-  <Project Path="AteliApp.Application/AteliApp.Application.csproj" />
-  <Project Path="AteliApp.Domain/AteliApp.Domain.csproj" />
-  <Project Path="AteliApp.Infrastructure/AteliApp.Infrastructure.csproj" />
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path="swagger-pages.yml" />
+  </Folder>
+  <Folder Name="/docs/" />
+  <Folder Name="/docs/swagger/">
+    <File Path="index.html" />
+    <File Path="swagger.yaml" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="AteliApp-Backend/AteliApp-Backend.csproj" />
+    <Project Path="AteliApp.Application/AteliApp.Application.csproj" />
+    <Project Path="AteliApp.Domain/AteliApp.Domain.csproj" />
+    <Project Path="AteliApp.Infrastructure/AteliApp.Infrastructure.csproj" />
+  </Folder>
 </Solution>
