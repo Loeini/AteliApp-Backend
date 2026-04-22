@@ -2,11 +2,11 @@
 
 public record CriarMedidasRequest(
     Guid IdCliente,
-    int? Altura,
-    int? Busto,
-    int? Cintura,
-    int? Quadril,
-    int? Ombro,
+    decimal? Altura,
+    decimal? Busto,
+    decimal? Cintura,
+    decimal? Quadril,
+    decimal? Ombro,
     string? Outros,
     string? Observacao
 );

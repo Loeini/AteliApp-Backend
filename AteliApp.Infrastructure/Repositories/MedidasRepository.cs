@@ -35,4 +35,9 @@ public class MedidasRepository : IMedidasRepository
     {
         return await _context.Medidas.FirstOrDefaultAsync(m => m.Id == id);
     }
+
+    public async Task<List<Medidas>> GetByClienteIdAsync(Guid idCliente)
+    {
+        return await _context.Medidas.Where(m => m.IdCliente == idCliente).ToListAsync();
+    }
 }

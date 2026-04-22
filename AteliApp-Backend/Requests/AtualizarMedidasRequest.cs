@@ -1,11 +1,11 @@
 ﻿namespace AteliApp.Requests;
 
 public record AtualizarMedidasRequest(
-    int? Altura,
-    int? Busto,
-    int? Cintura,
-    int? Quadril,
-    int? Ombro,
+    decimal? Altura,
+    decimal? Busto,
+    decimal? Cintura,
+    decimal? Quadril,
+    decimal? Ombro,
     string? Outros,
     string? Observacao
 );

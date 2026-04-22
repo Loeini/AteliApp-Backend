@@ -17,11 +17,11 @@ namespace AteliApp.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     IdCliente = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Altura = table.Column<int>(type: "INTEGER", nullable: true),
-                    Busto = table.Column<int>(type: "INTEGER", nullable: true),
-                    Cintura = table.Column<int>(type: "INTEGER", nullable: true),
-                    Quadril = table.Column<int>(type: "INTEGER", nullable: true),
-                    Ombro = table.Column<int>(type: "INTEGER", nullable: true),
+                    Altura = table.Column<decimal>(type: "REAL", nullable: true),
+                    Busto = table.Column<decimal>(type: "REAL", nullable: true),
+                    Cintura = table.Column<decimal>(type: "REAL", nullable: true),
+                    Quadril = table.Column<decimal>(type: "REAL", nullable: true),
+                    Ombro = table.Column<decimal>(type: "REAL", nullable: true),
                     Outros = table.Column<string>(type: "TEXT", nullable: true),
                     Observacao = table.Column<string>(type: "TEXT", nullable: true)
                 },

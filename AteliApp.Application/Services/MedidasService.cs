@@ -63,9 +63,11 @@ namespace AteliApp.Application.Services
         {
             return await _medidasRepository.GetAllAsync();
         }
+
+        public async Task<List<Medidas>> ObterPorClienteIdAsync(Guid idCliente)
+        {
+            return await _medidasRepository.GetByClienteIdAsync(idCliente);
+        }
     }
 }
           
-
-
-    

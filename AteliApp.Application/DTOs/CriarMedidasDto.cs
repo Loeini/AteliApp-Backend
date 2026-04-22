@@ -3,21 +3,21 @@
 public class CriarMedidasDto
 {
     public Guid IdCliente { get; }
-    public int? Altura { get; }
-    public int? Busto { get; }
-    public int? Cintura { get; }
-    public int? Quadril { get; }
-    public int? Ombro { get; }
+    public decimal? Altura { get; }
+    public decimal? Busto { get; }
+    public decimal? Cintura { get; }
+    public decimal? Quadril { get; }
+    public decimal? Ombro { get; }
     public string? Outros { get; }
     public string? Observacao { get; }
 
     public CriarMedidasDto(
         Guid idCliente,
-        int? altura,
-        int? busto,
-        int? cintura,
-        int? quadril,
-        int? ombro,
+        decimal? altura,
+        decimal? busto,
+        decimal? cintura,
+        decimal? quadril,
+        decimal? ombro,
         string? outros,
         string? observacao)
     {

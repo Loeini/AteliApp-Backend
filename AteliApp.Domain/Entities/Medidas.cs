@@ -8,11 +8,11 @@ namespace AteliApp.Domain.Entities
     {
         public Guid Id { get; set; }
         public Guid IdCliente { get; set; }
-        public int? Altura { get; set; }
-        public int? Busto { get; set; }
-        public int? Cintura { get; set; }
-        public int? Quadril { get; set; }
-        public int? Ombro { get; set; }
+        public decimal? Altura { get; set; }
+        public decimal? Busto { get; set; }
+        public decimal? Cintura { get; set; }
+        public decimal? Quadril { get; set; }
+        public decimal? Ombro { get; set; }
         public string? Outros { get; set; }
         public string? Observacao { get; set; }
 

@@ -11,6 +11,7 @@ namespace AteliApp.Domain.Interfaces
         Task UpdateAsync(Medidas medidas);
         Task<List<Medidas>> GetAllAsync();
         Task<Medidas?> GetByIdAsync(Guid id);
+        Task<List<Medidas>> GetByClienteIdAsync(Guid idCliente);
 
     }
 }

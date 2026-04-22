@@ -64,4 +64,11 @@ public class MedidasController : ControllerBase
         var medidas = await _service.ObterPorIdAsync(id);
         return Ok(medidas);
     }
+
+    [HttpGet("cliente/{idCliente}")]
+    public async Task<IActionResult> GetByClienteId(Guid idCliente)
+    {
+        var medidas = await _service.ObterPorClienteIdAsync(idCliente);
+        return Ok(medidas);
+    }
 }
